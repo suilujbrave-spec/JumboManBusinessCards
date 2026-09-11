@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#071b2c">
+
+<title>Digital Business Card | Jumbo Maritime</title>
+
+<style>
+/* =========================================================
+   JUMBO MARITIME DIGITAL BUSINESS CARD
+   ========================================================= */
+
+:root {
+    --navy: #071b2c;
+    --navy2: #0d2d46;
+    --blue: #174d73;
+    --accent: #2d82b7;
+
+    --light: #f4f7f9;
+    --text: #24323d;
+    --muted: #71808b;
+    --white: #ffffff;
+    --border: #dfe6eb;
+}
+
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: linear-gradient(160deg, #eef3f6 0%, #f8fafb 45%, #e9eff3 100%);
+    color: var(--text);
+}
+
+.card {
+    width: 100%;
+    max-width: 520px;
+    min-height: 100vh;
+    margin: auto;
+    background: var(--white);
+    box-shadow: 0 0 35px rgba(0,0,0,0.08);
+}
+
+.header {
+    position: relative;
+    overflow: hidden;
+    padding: 35px 25px 32px;
+    text-align: center;
+    color: white;
+    background: linear-gradient(145deg, var(--navy), var(--navy2));
+}
+
+.header::before {
+    content: "";
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    border: 35px solid rgba(255,255,255,0.035);
+    top: -130px;
+    right: -110px;
+}
+
+.header::after {
+    content: "";
+    position: absolute;
+    width: 190px;
+    height: 190px;
+    border-radius: 50%;
+    border: 25px solid rgba(255,255,255,0.025);
+    bottom: -120px;
+    left: -90px;
+}
+
+.photo-container {
+    position: relative;
+    z-index: 2;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 18px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+    border: 2px solid rgba(255,255,255,0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.photo-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.logo-container {
+    position: relative;
+    z-index: 2;
+    width: 180px;
+    height: 55px;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-container img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0px 0px 10px rgba(255, 255, 255, 0.85));
+}
+
+.name {
+    position: relative;
+    z-index: 2;
+    margin: 0;
+    font-size: 27px;
+    line-height: 1.15;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.position {
+    position: relative;
+    z-index: 2;
+    margin-top: 9px;
+    font-size: 17px;
+    font-weight: 500;
+    color: #d7e8f3;
+}
+
+.company {
+    position: relative;
+    z-index: 2;
+    margin-top: 8px;
+    text-align: center;
+}
+
+.company-name {
+    font-size: 20px;
+    line-height: 1.1;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+}
+
+.company-tagline {
+    margin-top: 4px;
+    font-size: 11px;
+    line-height: 1.3;
+    font-weight: 400;
+    letter-spacing: 0.3px;
+    color: #9fc1d5;
+}
+
+.tagline {
+    position: relative;
+    z-index: 2;
+    max-width: 390px;
+    margin: 18px auto 0;
+    font-size: 12px;
+    line-height: 1.6;
+    color: #dce8ef;
+}
+
+.content {
+    padding: 28px 22px 35px;
+}
+
+.section {
+    margin-bottom: 27px;
+}
+
+.section-title {
+    margin-bottom: 11px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.save-contact {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.save-button {
+    border: none;
+    border-radius: 12px;
+    min-height: 64px;
+    padding: 11px 8px;
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    line-height: 1.25;
+    transition: transform .15s ease, opacity .15s ease;
+    box-shadow: 0 5px 14px rgba(7,27,44,0.16);
+}
+
+.save-button:active {
+    transform: scale(0.96);
+}
+
+.save-button:hover {
+    opacity: 0.9;
+}
+
+.button-icon {
+    font-size: 21px;
+    line-height: 1;
+}
+
+.apple { background: #111111; }
+.android { background: #244f35; }
+
+.contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.contact-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--text);
+    background: #f7f9fa;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 13px 14px;
+    transition: background .15s ease, transform .15s ease;
+}
+
+.contact-link:active {
+    transform: scale(0.985);
+}
+
+.icon {
+    width: 37px;
+    height: 37px;
+    flex: 0 0 37px;
+    margin-right: 12px;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e8f0f5;
+    color: var(--blue);
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.link-info { min-width: 0; }
+
+.link-label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 2px;
+}
+
+.link-value {
+    display: block;
+    font-size: 12px;
+    color: var(--muted);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.map-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 13px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #164a6d, #236e9d);
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    box-shadow: 0 6px 15px rgba(23,77,115,0.18);
+}
+
+.address {
+    padding: 16px;
+    border-radius: 10px;
+    background: #f7f9fa;
+    border: 1px solid var(--border);
+    line-height: 1.65;
+    font-size: 13px;
+    color: #53616c;
+}
+
+.address strong {
+    color: var(--text);
+    font-size: 14px;
+}
+
+.footer {
+    padding: 5px 10px 20px;
+    text-align: center;
+    font-size: 10px;
+    color: #a3adb5;
+    line-height: 1.5;
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: none;
+    align-items: flex-end;
+    justify-content: center;
+    background: rgba(0,0,0,0.55);
+    backdrop-filter: blur(4px);
+}
+
+.modal.show { display: flex; }
+
+.modal-box {
+    width: 100%;
+    max-width: 520px;
+    background: white;
+    border-radius: 20px 20px 0 0;
+    padding: 25px 22px 30px;
+    animation: slideUp .22s ease;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.modal-title { font-size: 18px; font-weight: 700; }
+
+.close {
+    border: none;
+    background: #f0f3f5;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.vcard-preview {
+    background: #f5f8fa;
+    border-radius: 12px;
+    padding: 18px;
+    margin-bottom: 18px;
+}
+
+.preview-name { font-size: 18px; font-weight: 700; margin-bottom: 4px; }
+
+.preview-position {
+    color: var(--blue);
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.preview-detail {
+    font-size: 12px;
+    color: #5d6a73;
+    line-height: 1.7;
+}
+
+.download-button {
+    display: block;
+    width: 100%;
+    border: none;
+    padding: 15px;
+    border-radius: 10px;
+    background: var(--navy);
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+@media (min-width: 600px) {
+    body { padding: 35px 15px; }
+    .card { min-height: auto; border-radius: 20px; overflow: hidden; }
+    .modal { align-items: center; }
+    .modal-box { border-radius: 20px; max-width: 440px; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+    <header class="header">
+        <div class="photo-container">
+            <img id="photoEl" src="" alt="Profile Photo">
+        </div>
+
+        <div class="logo-container">
+            <img src="../JumboLogo.png" alt="Jumbo Maritime">
+        </div>
+
+        <h1 class="name" id="fullNameEl"></h1>
+        <div class="position" id="titleEl"></div>
+
+        <div class="company">
+            <div class="company-name">Jumbo</div>
+            <div class="company-tagline">The Maritime Heavylift Company</div>
+        </div>
+
+        <div class="tagline">Reliable Strength • Global Reach • Innovative Solutions</div>
+    </header>
+
+    <main class="content">
+
+        <section class="section">
+            <div class="section-title">Save Contact</div>
+            <div class="save-contact">
+                <button class="save-button apple" onclick="openVCard('apple')">
+                    <span class="button-icon">🍎</span>
+                    <span>Add to Apple<br>Contacts</span>
+                </button>
+                <button class="save-button android" onclick="openVCard('android')">
+                    <span class="button-icon">🤖</span>
+                    <span>Add to Android<br>Contacts</span>
+                </button>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-title">Contact</div>
+            <div class="contact-list">
+                <a class="contact-link" id="telLink" href="#">
+                    <div class="icon">☎</div>
+                    <div class="link-info">
+                        <span class="link-label">Telephone</span>
+                        <span class="link-value" id="telVal"></span>
+                    </div>
+                </a>
+
+                <a class="contact-link" id="mobileLink" href="#">
+                    <div class="icon">📱</div>
+                    <div class="link-info">
+                        <span class="link-label">Mobile</span>
+                        <span class="link-value" id="mobileVal"></span>
+                    </div>
+                </a>
+
+                <a class="contact-link" id="emailLink" href="#">
+                    <div class="icon">✉</div>
+                    <div class="link-info">
+                        <span class="link-label">Email</span>
+                        <span class="link-value" id="emailVal"></span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <section class="section" id="connectSection">
+            <div class="section-title">Connect</div>
+            <div class="contact-list">
+                <a class="contact-link" id="linkedinLink" href="#" target="_blank" rel="noopener noreferrer">
+                    <div class="icon">in</div>
+                    <div class="link-info">
+                        <span class="link-label">LinkedIn</span>
+                        <span class="link-value" id="linkedinVal"></span>
+                    </div>
+                </a>
+
+                <a class="contact-link" id="whatsappLink" href="#" target="_blank" rel="noopener noreferrer">
+                    <div class="icon">💬</div>
+                    <div class="link-info">
+                        <span class="link-label">WhatsApp</span>
+                        <span class="link-value" id="whatsappVal"></span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-title">Jumbo Maritime</div>
+            <div class="contact-list">
+                <a class="contact-link" href="https://www.jumbomaritime.nl/about-jumbo-maritime/" target="_blank" rel="noopener noreferrer">
+                    <div class="icon">🌐</div>
+                    <div class="link-info">
+                        <span class="link-label">Jumbo Maritime Website</span>
+                        <span class="link-value">www.jumbomaritime.nl</span>
+                    </div>
+                </a>
+
+                <a class="contact-link" href="https://www.youtube.com/@jumboheavylift" target="_blank" rel="noopener noreferrer">
+                    <div class="icon">▶</div>
+                    <div class="link-info">
+                        <span class="link-label">Jumbo YouTube Channel</span>
+                        <span class="link-value">Jumbo Heavy Lift</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-title">Office Location</div>
+            <a class="map-button" href="https://maps.app.goo.gl/DwY8wMDP6Af1F9786" target="_blank" rel="noopener noreferrer">
+                📍 &nbsp; View Office on Google Maps
+            </a>
+            <div class="address">
+                <strong>Jumbo Philippines</strong><br>
+                9/F Unit 905 Pryce Center Bldg.<br>
+                1179 Chino Roces Ave.<br>
+                Makati City, Philippines
+            </div>
+        </section>
+
+        <div class="footer">
+            Jumbo<br>
+            The Maritime Heavylift Company
+        </div>
+
+    </main>
+</div>
+
+<div id="vcardModal" class="modal" onclick="closeModal(event)">
+    <div class="modal-box" onclick="event.stopPropagation()">
+        <div class="modal-header">
+            <div class="modal-title">Save Contact</div>
+            <button class="close" onclick="closeVCard()">×</button>
+        </div>
+
+        <div class="vcard-preview">
+            <div class="preview-name" id="modalName"></div>
+            <div class="preview-position" id="modalTitle"></div>
+            <div class="preview-detail" id="modalDetail"></div>
+        </div>
+
+        <button id="downloadButton" class="download-button" onclick="downloadVCard()">
+            Save Contact
+        </button>
+    </div>
+</div>
+
+<script>
+/* =========================================================
+   COLLEAGUE DETAILS CONFIGURATION
+   Change these details for each colleague!
+   Leave linkedin or whatsapp as "" if they don't have one.
+   ========================================================= */
+const contact = {
+    firstName: "Julius Ceazar",
+    lastName: "Mulingtapang",
+    fullName: "Julius Ceazar Mulingtapang",
+    organization: 'Jumbo "The Maritime Heavylift Company"',
+    title: "Inquiry Engineer",
+    photo: "photo.png", // Photo located inside this colleague's folder
+    telephone: "+6328952095",
+    mobile: "+639177059813",
+    email: "j.mulingtapang@jumbomaritime.nl",
+    whatsapp: "+639277731912", // Leave as "" to remove button
+    linkedin: "https://www.linkedin.com/in/juliusceazarmulingtapang/" // Leave as "" to remove button
+};
+
+/* =========================================================
+   PAGE INITIALIZATION
+   ========================================================= */
+document.addEventListener("DOMContentLoaded", function() {
+    document.title = `${contact.fullName} | ${contact.title}`;
+    
+    // Header
+    document.getElementById("photoEl").src = contact.photo;
+    document.getElementById("fullNameEl").innerText = contact.fullName;
+    document.getElementById("titleEl").innerText = contact.title;
+    
+    // Contacts
+    document.getElementById("telLink").href = `tel:${contact.telephone.replace(/\s+/g, '')}`;
+    document.getElementById("telVal").innerText = contact.telephone;
+
+    document.getElementById("mobileLink").href = `tel:${contact.mobile.replace(/\s+/g, '')}`;
+    document.getElementById("mobileVal").innerText = contact.mobile;
+
+    document.getElementById("emailLink").href = `mailto:${contact.email}`;
+    document.getElementById("emailVal").innerText = contact.email;
+
+    // Optional: LinkedIn
+    if (contact.linkedin) {
+        document.getElementById("linkedinLink").href = contact.linkedin;
+        document.getElementById("linkedinVal").innerText = contact.fullName;
+    } else {
+        document.getElementById("linkedinLink").remove();
+    }
+
+    // Optional: WhatsApp
+    if (contact.whatsapp) {
+        const cleanWa = contact.whatsapp.replace(/[^0-9]/g, '');
+        document.getElementById("whatsappLink").href = `https://wa.me/${cleanWa}`;
+        document.getElementById("whatsappVal").innerText = contact.whatsapp;
+    } else {
+        document.getElementById("whatsappLink").remove();
+    }
+
+    // Hide Connect section if both optional accounts are empty
+    if (!contact.linkedin && !contact.whatsapp) {
+        document.getElementById("connectSection").remove();
+    }
+
+    // Populate Modal Preview
+    document.getElementById("modalName").innerText = contact.fullName;
+    document.getElementById("modalTitle").innerText = contact.title;
+    document.getElementById("modalDetail").innerHTML = `
+        Jumbo "The Maritime Heavylift Company"<br>
+        ☎ ${contact.telephone}<br>
+        📱 ${contact.mobile}<br>
+        ✉ ${contact.email}
+    `;
+});
+
+/* =========================================================
+   VCARD MODAL LOGIC
+   ========================================================= */
+function openVCard(platform) {
+    const button = document.getElementById("downloadButton");
+    const modal = document.getElementById("vcardModal");
+
+    button.innerHTML = platform === "apple" ? "🍎 Add to Apple Contacts" : "🤖 Add to Android Contacts";
+    modal.classList.add("show");
+}
+
+function closeVCard() {
+    document.getElementById("vcardModal").classList.remove("show");
+}
+
+function closeModal(event) {
+    if (event.target.id === "vcardModal") {
+        closeVCard();
+    }
+}
+
+function createVCard() {
+    const vcardLines = [
+        "BEGIN:VCARD",
+        "VERSION:3.0",
+        `N:${contact.lastName};${contact.firstName};;;`,
+        `FN:${contact.fullName}`,
+        `ORG:${contact.organization}`,
+        `TITLE:${contact.title}`,
+        `TEL;TYPE=WORK,VOICE:${contact.telephone}`,
+        `TEL;TYPE=CELL,VOICE:${contact.mobile}`,
+        `EMAIL;TYPE=WORK:${contact.email}`
+    ];
+
+    let itemIndex = 1;
+    if (contact.whatsapp) {
+        vcardLines.push(`item${itemIndex}.TEL:${contact.whatsapp}`);
+        vcardLines.push(`item${itemIndex}.X-ABLabel:WhatsApp`);
+        itemIndex++;
+    }
+    if (contact.linkedin) {
+        vcardLines.push(`item${itemIndex}.URL:${contact.linkedin}`);
+        vcardLines.push(`item${itemIndex}.X-ABLabel:LinkedIn`);
+        itemIndex++;
+    }
+
+    vcardLines.push("URL:https://www.jumbomaritime.nl/about-jumbo-maritime/");
+    vcardLines.push("ADR;TYPE=WORK:;;9/F Unit 905 Pryce Center Bldg.;1179 Chino Roces Ave.;Makati City;;Philippines");
+    vcardLines.push(`NOTE:${contact.title} - Jumbo Philippines`);
+    vcardLines.push("END:VCARD");
+
+    return vcardLines.join("\r\n");
+}
+
+function downloadVCard() {
+    const vcard = createVCard();
+    const blob = new Blob([vcard], { type: "text/vcard;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+
+    link.href = url;
+    link.download = `${contact.firstName}_${contact.lastName}.vcf`;
+
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    URL.revokeObjectURL(url);
+    setTimeout(closeVCard, 500);
+}
+
+document.addEventListener("keydown", function(event) {
+    if (event.key === "Escape") closeVCard();
+});
+</script>
+
+</body>
+</html>
